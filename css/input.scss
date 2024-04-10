@@ -1,0 +1,368 @@
+// Variabelen
+$font-family: 'Josefin Sans', sans-serif;
+$primary-color: #f9004d;
+$secondary-color: #2a375e;
+$background-color: #101010;
+$accent-color: #46527a;
+
+// Mixins
+@mixin button-style {
+    background-color: $primary-color;
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 13px 30px;
+    border-radius: 30px;
+    transition: .4s;
+
+    &:hover {
+        background-color: transparent;
+        border: 2px solid $primary-color;
+        cursor: pointer;
+    }
+}
+
+// Basisstijlen
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-family;
+}
+
+// Navbar
+nav {
+    width: 100%;
+    background-color: $secondary-color;
+    height: 75px;
+    line-height: 75px;
+    padding: 0 120px;
+
+    h2 {
+        font-size: 32px;
+        color: white;
+        text-transform: uppercase;
+        float: left;
+    }
+
+    ul {
+        float: right;
+
+        li {
+            float: left;
+            list-style: none;
+            position: relative;
+
+            a {
+                text-decoration: none;
+                color: white;
+                font-size: 17px;
+                padding: 0 16px;
+                display: block;
+
+                &:hover {
+                    background-color: $accent-color;
+                }
+            }
+
+            ul {
+                position: absolute;
+                display: none;
+                background-color: $secondary-color;
+                border-radius: 0 0 5px 5px;
+            }
+
+            &:hover ul {
+                display: block;
+
+                li {
+                    line-height: 1;
+                    width: 190px;
+                    border-radius: 5px;
+                    padding: 6px;
+
+                    a {
+                        padding: 10px 16px;
+
+                        &:hover {
+                            background-color: $accent-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Hero
+.hero1 {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../img/background1.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 2rem;
+
+    .content {
+        position: absolute;
+        top: 50%;
+        left: 8%;
+        transform: translateY(-50%);
+        color: white;
+
+        h1 {
+            margin: 20px 0;
+            font-size: 75px;
+        }
+
+        h2 {
+            margin: 20px 0;
+            font-size: 25px;
+        }
+
+        h3 {
+            font-size: 25px;
+            margin-bottom: 50px;
+        }
+    }
+}
+
+// About
+.about {
+    width: 100%;
+    padding: 100px 0;
+    background-color: $background-color;
+
+    .main {
+        width: 1130px;
+        max-width: 95%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        img {
+            height: auto;
+            width: 430px;
+        }
+
+        .about-text {
+            width: 550px;
+
+            h2 {
+                font-size: 75px;
+                text-transform: capitalize;
+                margin-bottom: 20px;
+                color: white;
+            }
+
+            h5 {
+                font-size: 22px;
+                margin-bottom: 25px;
+                text-transform: capitalize;
+                color: white;
+            }
+
+            p {
+                font-size: 18px;
+                line-height: 28px;
+                margin-bottom: 45px;
+                color: $accent-color;
+            }
+        }
+    }
+}
+
+// Services
+.service {
+    background: $background-color;
+    width: 100%;
+    padding: 100px 0;
+
+    .title {
+        h2 {
+            color: white;
+            font-size: 75px;
+            width: 1130px;
+            margin: 30px auto;
+            text-align: center;
+        }
+    }
+
+    .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 400px;
+
+        .card {
+            height: 365px;
+            width: 335px;
+            padding: 20px 35px;
+            background: $secondary-color;
+            border-radius: 20px;
+            margin: 15px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+
+            i {
+                font-size: 50px;
+                display: block;
+                text-align: center;
+                margin: 25px 0;
+                color: $primary-color;
+            }
+
+            h5 {
+                color: white;
+                font-size: 23px;
+                margin-bottom: 15px;
+            }
+
+            .pra {
+                p {
+                    color: $accent-color;
+                    font-size: 16px;
+                    line-height: 27px;
+                    margin-bottom: 25px;
+                }
+            }
+
+            .button {
+                @include button-style;
+            }
+        }
+    }
+}
+
+// Contact
+.contact-me {
+    width: 100%;
+    height: 290px;
+    background: $background-color;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    p {
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 25px;
+    }
+
+    .button-two {
+        @include button-style;
+    }
+}
+
+// Footer
+footer {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: $background-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p:nth-child(1) {
+        font-size: 30px;
+        color: white;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    p:nth-child(2) {
+        color: white;
+        font-size: 17px;
+        width: 500px;
+        text-align: center;
+        line-height: 26px;
+    }
+
+    .social {
+        display: flex;
+
+        a {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $primary-color;
+            border-radius: 50%;
+            margin: 22px 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+
+            &:hover {
+                transform: scale(1.3);
+                transition: .3s;
+            }
+        }
+    }
+
+    .end {
+        position: absolute;
+        color: $primary-color;
+        bottom: 35px;
+        font-size: 14px;
+    }
+}
+
+// Mobile & Tablet Versie
+@media only screen and (max-width: 768px) {
+    nav {
+        padding: 0.5rem;
+
+        ul {
+            float: none;
+
+            li {
+                float: none;
+                text-align: center;
+
+                ul {
+                    position: static;
+                    display: block;
+                    background-color: transparent;
+                    border-radius: 0;
+                    width: auto;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+
+    .hero1 {
+        padding: 1rem;
+    }
+
+    .about {
+        padding: 1rem;
+
+        .main {
+            flex-direction: column;
+
+            .about-text {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    .service {
+        padding: 1rem;
+    }
+
+    .contact-me,
+    .social-menu {
+        padding: 1rem;
+    }
+}
